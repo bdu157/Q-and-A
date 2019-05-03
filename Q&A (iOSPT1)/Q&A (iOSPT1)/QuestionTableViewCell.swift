@@ -19,6 +19,25 @@ class QuestionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var bottomLabel: UILabel!
     
+    
+    var question: Question? {
+        didSet {
+            updateView()
+        }
+    }
+    
+    private func updateView() {
+        guard let questionInput = question?.question,
+            let askerInput = question?.asker else {return}
+
+                QuestionLabelLabel.text = questionInput
+                AskedByLabelLabel.text = askerInput
+                bottomLabel.text = "Can you asnwer this?"
+        
+    }
+    
+    /*
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,5 +48,5 @@ class QuestionTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+ */
 }

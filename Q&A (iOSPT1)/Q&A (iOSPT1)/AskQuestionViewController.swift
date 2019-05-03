@@ -12,21 +12,26 @@ class AskQuestionViewController: UIViewController {
     @IBOutlet weak var NameTextField: UITextField!
     @IBOutlet weak var QuestionTextView: UITextView!
     
+    var questionController: QuestionController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
+    }
+
+    @IBAction func SubmitQuestionButtonTapped(_ sender: Any) {
+        guard let nameText = NameTextField.text,
+            let questionText = QuestionTextView.text else {return}
+                questionController?.create(object: Question(question: questionText, asker: nameText))
+        //have the navigation controller pop to the previous view controller?
+        NameTextField.text = " "
+        QuestionTextView.text = " "
+    }
 }
+

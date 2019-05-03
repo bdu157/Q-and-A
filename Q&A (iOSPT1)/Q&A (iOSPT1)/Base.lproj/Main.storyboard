@@ -106,6 +106,7 @@
                     <navigationItem key="navigationItem" title="Q&amp;A" id="Zmo-fg-dWY">
                         <barButtonItem key="rightBarButtonItem" title="Ask Question" id="WTg-Xv-uhZ">
                             <connections>
+                                <action selector="AskQuestionTapped:" destination="mle-Zp-FLt" id="5Pd-2w-3HO"/>
                                 <segue destination="Hjd-tY-TbT" kind="show" identifier="ToAskQuestionVC" id="NNh-h1-9Va"/>
                             </connections>
                         </barButtonItem>
@@ -126,31 +127,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="6nt-RP-YK6">
-                                <rect key="frame" x="40" y="88" width="295" height="406"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="6nt-RP-YK6">
+                                <rect key="frame" x="40" y="140" width="295" height="406"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHD-X4-N1Y">
-                                        <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="20.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Y5-pt-6MV">
-                                        <rect key="frame" x="0.0" y="50.333333333333343" width="41.666666666666664" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="50.333333333333343" width="295" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SdG-uu-7Om">
-                                        <rect key="frame" x="0.0" y="100.66666666666666" width="59" height="30"/>
+                                        <rect key="frame" x="0.0" y="100.66666666666666" width="295" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rky-s1-KX9">
-                                        <rect key="frame" x="0.0" y="160.66666666666663" width="240" height="245.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="160.66666666666669" width="295" height="245.33333333333331"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -169,6 +169,11 @@
                     <navigationItem key="navigationItem" title="question goes in here" id="4Jd-MD-V0J">
                         <barButtonItem key="rightBarButtonItem" title="Submit Answer" id="lqU-gR-FJV"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="inputNameLabel" destination="SdG-uu-7Om" id="CAu-wi-dkj"/>
+                        <outlet property="nameLabel" destination="2Y5-pt-6MV" id="Ta2-Fy-khu"/>
+                        <outlet property="questionLabel" destination="aHD-X4-N1Y" id="q7N-Wp-WIa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrX-P7-hj7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,15 +188,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t7T-it-3uZ">
-                                <rect key="frame" x="0.0" y="96" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="148" width="375" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cne-XM-87a">
-                                <rect key="frame" x="0.0" y="134" width="375" height="268"/>
+                                <rect key="frame" x="0.0" y="186" width="375" height="268"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -209,7 +213,11 @@
                         <viewLayoutGuide key="safeArea" id="MDg-yA-vq4"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="hok-0c-4Eq">
-                        <barButtonItem key="rightBarButtonItem" title="Submit Question" id="e7Z-jd-tsE"/>
+                        <barButtonItem key="rightBarButtonItem" title="Submit Question" id="e7Z-jd-tsE">
+                            <connections>
+                                <action selector="SubmitQuestionButtonTapped:" destination="Hjd-tY-TbT" id="fRj-zN-MAY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="NameTextField" destination="t7T-it-3uZ" id="fA5-aV-TQd"/>
@@ -225,8 +233,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AJ1-gQ-ga2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="85x-kC-jEC">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="85x-kC-jEC">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
