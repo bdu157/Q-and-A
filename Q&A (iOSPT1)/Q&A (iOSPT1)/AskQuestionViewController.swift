@@ -20,18 +20,20 @@ class AskQuestionViewController: UIViewController {
 
     // MARK: - Navigation
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-    }
 
     @IBAction func SubmitQuestionButtonTapped(_ sender: Any) {
         guard let nameText = NameTextField.text,
             let questionText = QuestionTextView.text else {return}
+        if nameText != "" && questionText != "" {
                 questionController?.create(object: Question(question: questionText, asker: nameText))
         NameTextField.text = " "
         QuestionTextView.text = " " 
         //navigationcontroller pop to the previous controller
         navigationController?.popViewController(animated: true)
+        } else {
+            NameTextField.text = "Please add your name"
+            QuestionTextView.text = "Pleaes add your question here"
+        }
     }
 }
 

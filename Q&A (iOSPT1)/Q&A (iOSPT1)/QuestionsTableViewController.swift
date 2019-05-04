@@ -42,7 +42,9 @@ class QuestionsTableViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        //working on it
+        questionController.delete(indexPath: indexPath)
+        let selectedRow = [indexPath]
+        tableView.deleteRows(at: selectedRow, with: .fade)
     }
 
     // MARK: - Navigation

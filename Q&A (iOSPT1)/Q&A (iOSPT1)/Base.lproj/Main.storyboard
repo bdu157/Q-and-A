@@ -174,10 +174,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="answererLabel" destination="SdG-uu-7Om" id="pEW-iE-zoS"/>
+                        <outlet property="answerTextView" destination="Rky-s1-KX9" id="lmY-oK-6qT"/>
+                        <outlet property="answererTextField" destination="SdG-uu-7Om" id="d52-kF-9cj"/>
                         <outlet property="nameLabel" destination="2Y5-pt-6MV" id="Ta2-Fy-khu"/>
                         <outlet property="questionLabel" destination="aHD-X4-N1Y" id="q7N-Wp-WIa"/>
-                        <outlet property="questionTitleLabel" destination="4Jd-MD-V0J" id="nFE-DD-hD8"/>
+                        <outlet property="questionTitleItem" destination="4Jd-MD-V0J" id="On1-bd-gG7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrX-P7-hj7" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -19,10 +19,8 @@ class QuestionController {
         let input = Question.init(question: question, asker: asker, answer: answerer, answerer: answerer)
         questions.append(input)
     }
-   /*
-    func delete(object: Question) {
-        let index = questions.index(of: object)
-        self.questions.remove(at: index)
+    func delete(indexPath: IndexPath) {
+        let indexPaths = indexPath.row
+        self.questions.remove(at: indexPaths)
     }
-*/
 }

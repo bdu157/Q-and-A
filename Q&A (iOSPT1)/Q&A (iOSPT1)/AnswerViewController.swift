@@ -21,15 +21,17 @@ class AnswerViewController: UIViewController {
     }
 
     
-    @IBOutlet weak var questionTitleLabel: UINavigationItem!
+    @IBOutlet weak var questionTitleItem: UINavigationItem!
     
     @IBOutlet weak var questionLabel: UILabel!
  
     @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var answererLabel: UITextField!
+    @IBOutlet weak var answererTextField: UITextField!
     
 
+    @IBOutlet weak var answerTextView: UITextView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +41,9 @@ class AnswerViewController: UIViewController {
     
     
     @IBAction func SubmitButtonTapped(_ sender: Any) {
-        
-        
+        guard let answerer = answererTextField.text,
+            let answer = answerTextView.text else {return}
+        questionController?.update(question: "nil", asker: "nil", answer: answerer, answerer: answer)
         navigationController?.popViewController(animated: true)
         
     }
@@ -48,8 +51,11 @@ class AnswerViewController: UIViewController {
     
     func updateViews() {
         guard let questionEntered = question?.question,
-            let asker = question?.asker else {return}
-        questionTitleLabel.title = questionEntered
+            let asker = question?.asker,
+            let answerer = question?.answerer
+        else {return}
+        questionTitleItem.title = questionEntered
+        questionLabel.text = questionEntered
         questionLabel.text = questionEntered
         nameLabel.text = asker
     }
