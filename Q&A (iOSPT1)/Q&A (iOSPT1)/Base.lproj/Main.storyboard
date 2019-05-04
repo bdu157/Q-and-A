@@ -167,12 +167,17 @@
                         <viewLayoutGuide key="safeArea" id="GhE-Pr-Z2K"/>
                     </view>
                     <navigationItem key="navigationItem" title="question goes in here" id="4Jd-MD-V0J">
-                        <barButtonItem key="rightBarButtonItem" title="Submit Answer" id="lqU-gR-FJV"/>
+                        <barButtonItem key="rightBarButtonItem" title="Submit Answer" id="lqU-gR-FJV">
+                            <connections>
+                                <action selector="SubmitButtonTapped:" destination="fZb-4c-nOW" id="bB8-mG-I0v"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="inputNameLabel" destination="SdG-uu-7Om" id="CAu-wi-dkj"/>
+                        <outlet property="answererLabel" destination="SdG-uu-7Om" id="pEW-iE-zoS"/>
                         <outlet property="nameLabel" destination="2Y5-pt-6MV" id="Ta2-Fy-khu"/>
                         <outlet property="questionLabel" destination="aHD-X4-N1Y" id="q7N-Wp-WIa"/>
+                        <outlet property="questionTitleLabel" destination="4Jd-MD-V0J" id="nFE-DD-hD8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrX-P7-hj7" userLabel="First Responder" sceneMemberID="firstResponder"/>

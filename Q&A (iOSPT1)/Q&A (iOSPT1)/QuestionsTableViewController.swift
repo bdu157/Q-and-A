@@ -13,15 +13,16 @@ class QuestionsTableViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
+    //an instance of model controller => QuestionController so we have an access to properties and method of model controller
     var questionController = QuestionController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self
+        self.tableView.dataSource = self    //conforming protocol
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tableView.reloadData()
+        self.tableView.reloadData()     //so this can reload everytime new data gets passed into [Question]
     }
 
     // MARK: - Table view data source
@@ -30,7 +31,8 @@ class QuestionsTableViewController: UIViewController, UITableViewDataSource {
         return questionController.questions.count
     }
 
-    //no delegate set up here is because there wont be any button witin cell as delegator in this case
+    //no delegate set up here is because there wont be any button within cell as delegator in this case
+    //it just needs destination of QuestionTableViewCell to added [Question] to be shown in custome Cell without this cells wont be showing any [Question]
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         guard let questionTableCell = cell as? QuestionTableViewCell else {return cell}
@@ -45,6 +47,12 @@ class QuestionsTableViewController: UIViewController, UITableViewDataSource {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //there are two segues within QuestionTableViewController, ToAskQuestionVC segue got added from Submit Question bar button and ToAnswerVC segue got added directtly from customcell
+        
+        //for ToAskQuestionVC segue, it does not need selectedRow because it was not connected through cell it was through bar button
+        
+        //your passing whole instance of QuestionController alone through segue so AskQuestionViewController can use it to call its method within the model controller. for AnswerViewController it needs question (an element of [Qustion] => one struct that has 4 properties) as well to make them appear in labels
         if segue.identifier == "ToAskQuestionVC" {
             guard let askQuestionVC = segue.destination as? AskQuestionViewController else {return}
                 askQuestionVC.questionController = questionController

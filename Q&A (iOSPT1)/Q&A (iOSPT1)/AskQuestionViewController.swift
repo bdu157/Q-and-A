@@ -20,7 +20,6 @@ class AskQuestionViewController: UIViewController {
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
     }
@@ -29,9 +28,10 @@ class AskQuestionViewController: UIViewController {
         guard let nameText = NameTextField.text,
             let questionText = QuestionTextView.text else {return}
                 questionController?.create(object: Question(question: questionText, asker: nameText))
-        //have the navigation controller pop to the previous view controller?
         NameTextField.text = " "
-        QuestionTextView.text = " "
+        QuestionTextView.text = " " 
+        //navigationcontroller pop to the previous controller
+        navigationController?.popViewController(animated: true)
     }
 }
 
