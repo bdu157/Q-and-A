@@ -11,7 +11,7 @@ import UIKit
 
 class AnswerViewController: UIViewController {
 
-    
+    var quesetionsTableViewController = QuestionsTableViewController()
     var questionController: QuestionController?
     var question: Question? {
         didSet {
@@ -19,7 +19,6 @@ class AnswerViewController: UIViewController {
             updateViews()
         }
     }
-
     
     @IBOutlet weak var questionTitleItem: UINavigationItem!
     
@@ -29,36 +28,35 @@ class AnswerViewController: UIViewController {
     
     @IBOutlet weak var answererTextField: UITextField!
     
-
     @IBOutlet weak var answerTextView: UITextView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
     }
-
-    
     
     @IBAction func SubmitButtonTapped(_ sender: Any) {
+        
         guard let answerer = answererTextField.text,
             let answer = answerTextView.text else {return}
-        questionController?.update(question: "nil", asker: "nil", answer: answerer, answerer: answer)
+        //still figuring out how to get IndexPath here...
+        //questionController?.update(indexPath: IndexPath, answerer: answerer, answer: answer)
         navigationController?.popViewController(animated: true)
-        
     }
     
     
     func updateViews() {
         guard let questionEntered = question?.question,
             let asker = question?.asker,
+            let answer = question?.answer,
             let answerer = question?.answerer
         else {return}
         questionTitleItem.title = questionEntered
         questionLabel.text = questionEntered
-        questionLabel.text = questionEntered
         nameLabel.text = asker
+        answererTextField.text = answerer
+        answerTextView.text = answer
     }
- 
 
+    
 }

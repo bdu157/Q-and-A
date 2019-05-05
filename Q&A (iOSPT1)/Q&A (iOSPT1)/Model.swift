@@ -14,7 +14,7 @@ struct Question {
     var answer : String?
     var answerer :  String?     //answerer's name
     
-    init(question: String, asker: String, answer: String = "nil", answerer: String = "nil") {
+    init(question: String, asker: String, answer: String, answerer: String) {
         self.question = question
         self.asker = asker
         self.answer = answer

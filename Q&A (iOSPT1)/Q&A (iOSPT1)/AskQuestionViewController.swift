@@ -25,7 +25,7 @@ class AskQuestionViewController: UIViewController {
         guard let nameText = NameTextField.text,
             let questionText = QuestionTextView.text else {return}
         if nameText != "" && questionText != "" {
-                questionController?.create(object: Question(question: questionText, asker: nameText))
+                questionController?.create(question: questionText, asker: nameText)
         NameTextField.text = " "
         QuestionTextView.text = " " 
         //navigationcontroller pop to the previous controller

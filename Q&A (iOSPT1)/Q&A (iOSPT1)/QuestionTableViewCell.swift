@@ -34,6 +34,12 @@ class QuestionTableViewCell: UITableViewCell {
                 AskedByLabelLabel.text = askerInput
                 bottomLabel.text = "Can you asnwer this?"
         
+        if question?.answer != "" && question?.answerer != ""{
+            bottomLabel.text = "Tab to view answer"
+        } else {
+            return
+        }
+        
     }
     
 }
