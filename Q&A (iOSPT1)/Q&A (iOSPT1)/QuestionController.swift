@@ -16,10 +16,11 @@ class QuestionController {
         questions.append(input)
     }
     
-    func update(indexPath: IndexPath, answerer: String, answer: String) {
-        let indexPaths = indexPath.row
-        questions[indexPaths].answerer?.append(answerer)
-        questions[indexPaths].answer?.append(answer)
+    func update(question: Question, withAnswer answer: String, andAnswerer answerer: String) {
+        guard let index = questions.index(of: question) else { return }  //get an index of struct witin an array
+        
+        questions[index].answer = answer
+        questions[index].answerer = answerer
     }
     
     

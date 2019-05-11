@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Question {
+struct Question: Equatable {
     let question : String
     let asker : String           //asker's name
     var answer : String?

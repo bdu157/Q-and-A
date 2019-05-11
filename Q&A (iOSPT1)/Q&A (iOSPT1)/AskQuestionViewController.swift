@@ -30,9 +30,6 @@ class AskQuestionViewController: UIViewController {
         QuestionTextView.text = " " 
         //navigationcontroller pop to the previous controller
         navigationController?.popViewController(animated: true)
-        } else {
-            NameTextField.text = "Please add your name"
-            QuestionTextView.text = "Pleaes add your question here"
         }
     }
 }

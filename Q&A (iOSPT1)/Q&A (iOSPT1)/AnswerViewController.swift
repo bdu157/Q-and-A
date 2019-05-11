@@ -38,9 +38,9 @@ class AnswerViewController: UIViewController {
     @IBAction func SubmitButtonTapped(_ sender: Any) {
         
         guard let answerer = answererTextField.text,
-            let answer = answerTextView.text else {return}
-        //still figuring out how to get IndexPath here...
-        //questionController?.update(indexPath: IndexPath, answerer: answerer, answer: answer)
+            let answer = answerTextView.text,
+            let question = question else {return}
+        questionController?.update(question: question, withAnswer: answer, andAnswerer: answerer)  //this needed Equadible
         navigationController?.popViewController(animated: true)
     }
     
